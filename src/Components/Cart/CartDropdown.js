@@ -12,11 +12,18 @@ const CartDropdown = () => {
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
-        {cartItems &&
-          cartItems.length &&
-          cartItems.map((item) => <CartItem key={item.id} item={item} />)}
+        {cartItems && cartItems.length ? (
+          cartItems.map((item) => <CartItem key={item.id} item={item} />)
+        ) : (
+          <span>No added items</span>
+        )}
       </div>
-      <Button onClick={() => navigate("/checkout")}>GO TO CHECKOUT</Button>
+      <Button
+        onClick={() => navigate("/checkout")}
+        style={{ fontSize: "13px" }}
+      >
+        GO TO CHECKOUT
+      </Button>
     </div>
   );
 };
