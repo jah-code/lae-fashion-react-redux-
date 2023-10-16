@@ -7,9 +7,11 @@ import { CartContext } from "../Contexts/CartContext";
 import { signOutUser } from "../utils/firebase/firebase";
 import Cart from "../Components/Cart/Cart";
 import CartDropdown from "../Components/Cart/CartDropdown";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../store/User/UserSelector";
 
 const MainNavigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   return (
