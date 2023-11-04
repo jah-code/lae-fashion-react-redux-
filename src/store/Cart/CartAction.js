@@ -46,13 +46,11 @@ export const addItemToCart = (cartItems, productToAdd) => {
 };
 
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-  console.log("cliched remove");
   const newCartItems = removeCartItem(cartItems, cartItemToRemove);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
 export const clearItemFromCart = (cartItems, cartItemToClear) => {
-  console.log("clearItemFromCart", cartItems + cartItemToClear);
-  //   const newCartItems = clearCartItem(cartItems, cartItemToClear);
-  //   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+  const newCartItems = clearCartItem(cartItems, cartItemToClear);
+  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };

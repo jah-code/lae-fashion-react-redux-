@@ -9,18 +9,14 @@ import { selectCartItems } from "../../store/Cart/CartSelector";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
-  const clearItemHandler = () => {
-    console.log("clicked clear", cartItems + cartItem);
+  const clearItemHandler = () =>
     dispatch(clearItemFromCart(cartItems, cartItem));
-  };
   const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
-  const removeItemHandler = () => {
-    console.log("clicked remove");
+  const removeItemHandler = () =>
     dispatch(removeItemFromCart(cartItems, cartItem));
-  };
 
   return (
     <div className="checkout-item-container">
