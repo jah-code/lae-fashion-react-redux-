@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Components/Shop/ProductCard";
 import "../assets/styles/Categories/Category.scss";
@@ -8,7 +8,7 @@ import { selectCategoriesMap } from "../store/Category/CategorySelector";
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
